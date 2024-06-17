@@ -24,7 +24,10 @@ class Item extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (icon != null) Icon(icon) else Container(width: iconWidth),
+            if (icon != null) Padding(
+              padding: const EdgeInsets.only(left: iconPadding),
+              child: Icon(icon),
+            ) else Container(width: iconWidth),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(parameterPadding),

@@ -11,4 +11,5 @@ const int itemCount = 12;
 const int parameterTypeLines = 1;
 const int valueLines = 1;
 const double parameterPadding = 8;
+const double iconPadding = 12;
 const double valuePadding = 16;

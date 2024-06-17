@@ -22,6 +22,7 @@ class ParametersList extends StatelessWidget {
             return Item(
               parameterType: parameters[index].parameterType,
               value: parameters[index].value,
+              icon: parameters[index].icon,
             );
           },
         ),
