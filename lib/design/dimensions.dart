@@ -1,0 +1,12 @@
+const double separatorHeight = 8;
+const double parameterSize = 20;
+const double titleSize = 24;
+const double valueSize = 20;
+const double cardHeight = 32;
+const double topBarHeight = 50;
+const double borderRadius = 8;
+const int itemCount = 12;
+const int parameterTypeLines = 1;
+const int valueLines = 1;
+const double parameterPadding = 8;
+const double valuePadding = 16;
