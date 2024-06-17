@@ -1,5 +1,4 @@
 import 'dart:math' as math;
-import 'package:weather_app/model/parameter.dart';
 
 class Utils {
   static const int ten = 10;
@@ -9,31 +8,7 @@ class Utils {
   static int randomColorValue() =>
       (math.Random().nextDouble() * Utils.multiplier).toInt();
 
-  static List<Parameter> parameters() {
-    var now = DateTime.now();
-
-    return [
-      Parameter(
-          parameterType: 'Date',
-          value: "${monthName(now.month)} ${now.day}, ${now.year}"),
-      Parameter(
-          parameterType: 'Time',
-          value:
-              "${now.hour}:${addZeroIfNeeded(now.minute)}:${now.millisecond}"),
-      const Parameter(parameterType: 'City', value: 'Minsk'),
-      const Parameter(parameterType: 'Temperature', value: '24'),
-      const Parameter(parameterType: 'Feels like', value: '22'),
-      const Parameter(parameterType: 'Humidity', value: '56%'),
-      const Parameter(parameterType: 'Wind speed', value: '3 km/h'),
-      const Parameter(parameterType: 'Wind direction', value: 'SE'),
-      const Parameter(parameterType: 'UV index', value: '3'),
-      const Parameter(parameterType: 'Pressure', value: '1012 mbar'),
-      const Parameter(parameterType: 'Sunrise', value: '4:38 AM'),
-      const Parameter(parameterType: 'Sunset', value: '9:44 PM'),
-    ];
-  }
-
-  static String addZeroIfNeeded(int number) {
+  static String normalizeMinutes(int number) {
     if (number < ten) {
       return "0$number";
     } else {

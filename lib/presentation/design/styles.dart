@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../design/colors.dart';
-import '../design/dimensions.dart';
+import 'colors.dart';
+import 'dimensions.dart';
 
 const titleStyle = TextStyle(
   color: white,

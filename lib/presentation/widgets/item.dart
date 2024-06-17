@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../design/dimensions.dart';
 import '../design/styles.dart';
-import '../utils/utils.dart';
+import '../design/dimensions.dart';
+import '../../utils/utils.dart';
 
 class Item extends StatelessWidget {
   final String parameterType;
@@ -25,7 +24,10 @@ class Item extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (icon != null) Icon(icon) else Container(width: iconWidth),
+            if (icon != null) Padding(
+              padding: const EdgeInsets.only(left: iconPadding),
+              child: Icon(icon),
+            ) else Container(width: iconWidth),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(parameterPadding),

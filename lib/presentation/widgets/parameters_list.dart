@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/parameter.dart';
+import '../../domain/model/parameter.dart';
 import '../design/dimensions.dart';
 import 'item.dart';
 
@@ -22,6 +22,7 @@ class ParametersList extends StatelessWidget {
             return Item(
               parameterType: parameters[index].parameterType,
               value: parameters[index].value,
+              icon: parameters[index].icon,
             );
           },
         ),
