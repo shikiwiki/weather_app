@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/parameter.dart';
+import '../../domain/model/parameter.dart';
 import '../design/dimensions.dart';
 import 'item.dart';
 

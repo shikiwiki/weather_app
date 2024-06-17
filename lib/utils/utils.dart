@@ -1,5 +1,5 @@
 import 'dart:math' as math;
-import 'package:weather_app/model/parameter.dart';
+import 'package:weather_app/domain/model/parameter.dart';
 
 class Utils {
   static const int ten = 10;

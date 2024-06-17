@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../design/dimensions.dart';
 import '../design/styles.dart';
-import '../utils/utils.dart';
+import '../design/dimensions.dart';
+import '../../utils/utils.dart';
 
 class Item extends StatelessWidget {
   final String parameterType;
