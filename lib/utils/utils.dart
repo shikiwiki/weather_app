@@ -8,7 +8,7 @@ class Utils {
   static int randomColorValue() =>
       (math.Random().nextDouble() * Utils.multiplier).toInt();
 
-  static String normalizeMinutes(int number) {
+  static String normalizeMinutesAndSeconds(int number) {
     if (number < ten) {
       return "0$number";
     } else {
