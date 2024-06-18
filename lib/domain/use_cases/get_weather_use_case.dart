@@ -15,7 +15,7 @@ class GetWeatherUseCase {
       Parameter(
           parameterType: 'Time',
           value:
-              "${now.hour}:${Utils.normalizeMinutesOrSeconds(now.minute)}:${Utils.normalizeMinutesOrSeconds(now.second)}",
+          "${now.hour}:${Utils.normalizeMinutesOrSeconds(now.minute)}:${Utils.normalizeMinutesOrSeconds(now.second)}",
           icon: Icons.watch_later_outlined),
       const Parameter(
           parameterType: 'City', value: 'Minsk', icon: Icons.location_on),
