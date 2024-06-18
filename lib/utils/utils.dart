@@ -4,6 +4,7 @@ class Utils {
   static const int ten = 10;
   static const double itemBackgroundOpacity = 0.25;
   static const double multiplier = 0xFFFFFF;
+  static const String url = '';
 
   static int randomColorValue() =>
       (math.Random().nextDouble() * Utils.multiplier).toInt();

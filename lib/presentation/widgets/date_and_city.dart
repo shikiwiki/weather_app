@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/presentation/design/colors.dart';
 import 'package:weather_app/presentation/design/dimensions.dart';
 
-class DateAndTimeCard extends StatelessWidget {
-  const DateAndTimeCard({super.key});
+class DateAndCityCard extends StatelessWidget {
+  const DateAndCityCard({super.key});
 
   @override
   Widget build(BuildContext context) {
