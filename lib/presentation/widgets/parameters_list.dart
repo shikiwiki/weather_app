@@ -19,8 +19,7 @@ class _ParametersListState extends State<ParametersList> {
   @override
   Widget build(BuildContext context) {
     if (_weather == null) {
-      return const SizedBox();
-      //TODO: add error toast
+      return const SizedBox(); //TODO: add error toast
     } else {
       return Stack(
         children: <Widget>[
