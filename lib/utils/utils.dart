@@ -4,7 +4,9 @@ class Utils {
   static const int ten = 10;
   static const double itemBackgroundOpacity = 0.25;
   static const double multiplier = 0xFFFFFF;
-  static const String url = '';
+  static const String baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
+  static const String key = '9eaa0f8a337234fc6e0bc3ca2f5a78dd';
+  static const String city = 'minsk';
 
   static int randomColorValue() =>
       (math.Random().nextDouble() * Utils.multiplier).toInt();
