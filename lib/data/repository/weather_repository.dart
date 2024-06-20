@@ -4,7 +4,7 @@ import 'package:weather_app/utils/utils.dart';
 import '../dto/weather_dto.dart';
 
 class WeatherRepository {
-  Future<dynamic> getWeather() async {
+  Future<WeatherDto> getWeather() async {
     var response = await Dio().get(
       Utils.baseUrl,
       queryParameters: {
@@ -13,7 +13,7 @@ class WeatherRepository {
       },
     );
     var data = response.data as Map<String, dynamic>;
-    var weather = WeatherDto.fromJson(data);
-    return weather;
+    var weatherDto = WeatherDto.fromJson(data);
+    return weatherDto;
   }
 }

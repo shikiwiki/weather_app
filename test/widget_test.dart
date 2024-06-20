@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import 'package:weather_app/data/dto/weather_dto.dart';
-import 'package:weather_app/data/repository/weather_repository.dart';
+import 'package:weather_app/domain/use_cases/get_weather_use_case.dart';
 
 void main() async {
-  var result = await WeatherRepository().getWeather();
-  assert(result is WeatherDto);
-  var weather = result as WeatherDto;
-  debugPrint(weather.toJson().toString());
+  var weather = await GetWeatherUseCase().getWeather();
+  debugPrint(weather.sky);
+  debugPrint(weather.temperature);
+  debugPrint(weather.feelsLike);
+  debugPrint(weather.description);
+  debugPrint(weather.humidity);
+  debugPrint(weather.pressure);
+  debugPrint(weather.windSpeed);
+  debugPrint(weather.sunset);
+  debugPrint(weather.sunrise);
 }

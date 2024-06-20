@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/data/dto/weather_dto.dart';
+import 'package:weather_app/data/repository/weather_repository.dart';
+import 'package:weather_app/domain/model/weather_model.dart';
 import 'package:weather_app/utils/utils.dart';
 
 import '../model/parameter.dart';
 
 class GetWeatherUseCase {
+  late final WeatherRepository repository = WeatherRepository();
+
+  Future<WeatherModel> getWeather() async {
+    var weatherDto = await repository.getWeather();
+    var weatherModel = weatherDto.toDomain();
+    return weatherModel;
+  }
+
   List<Parameter> parameters() {
     var now = DateTime.now().toLocal();
 
@@ -15,7 +26,7 @@ class GetWeatherUseCase {
       Parameter(
           parameterType: 'Time',
           value:
-          "${now.hour}:${Utils.normalizeMinutesOrSeconds(now.minute)}:${Utils.normalizeMinutesOrSeconds(now.second)}",
+              "${now.hour}:${Utils.normalizeMinutesOrSeconds(now.minute)}:${Utils.normalizeMinutesOrSeconds(now.second)}",
           icon: Icons.watch_later_outlined),
       const Parameter(
           parameterType: 'City', value: 'Minsk', icon: Icons.location_on),
