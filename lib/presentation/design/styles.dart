@@ -16,7 +16,13 @@ const parameterStyle = TextStyle(
 );
 
 const valueStyle = TextStyle(
-  color: darkPrimary,
-  fontSize: valueSize,
+  color: primaryVariant,
+  fontSize: parameterSize,
   fontWeight: FontWeight.w800,
+);
+
+const errorStyle = TextStyle(
+  color: Colors.white,
+  fontSize: errorSize,
+  fontWeight: FontWeight.w400,
 );

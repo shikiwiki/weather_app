@@ -5,7 +5,8 @@ class Parameter {
   final String value;
   final IconData? icon;
 
-  const Parameter({required this.parameterType, required this.value, this.icon});
+  const Parameter(
+      {required this.parameterType, required this.value, this.icon});
 
   @override
   int get hashCode => super.hashCode * parameterType.length ^ value.length;
