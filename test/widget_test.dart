@@ -20,4 +20,5 @@ void main() async {
   var sunset = DateTime.fromMillisecondsSinceEpoch(1718909099 * 1000, isUtc: true).toLocal();
   debugPrint(sunrise.toString());
   debugPrint(sunset.toString());
+  debugPrint(DateTime.fromMillisecondsSinceEpoch(1718933872 * 1000, isUtc: true).toLocal().toString());
 }

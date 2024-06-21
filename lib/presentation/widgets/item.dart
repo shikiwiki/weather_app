@@ -24,29 +24,27 @@ class Item extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (icon != null) Padding(
-              padding: const EdgeInsets.only(left: iconPadding),
-              child: Icon(icon),
-            ) else Container(width: iconWidth),
+            if (icon != null)
+              Padding(
+                padding: const EdgeInsets.only(left: iconPadding),
+                child: Icon(icon),
+              )
+            else
+              Container(width: iconWidth),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(parameterPadding),
                 child: Text(
                   parameterType,
-                  maxLines: parameterTypeLines,
+                  maxLines: Utils.one,
                   overflow: TextOverflow.ellipsis,
                   style: parameterStyle,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(valuePadding),
-              child: Text(
-                value,
-                maxLines: valueLines,
-                style: valueStyle,
-              ),
-            )
+                padding: const EdgeInsets.all(valuePadding),
+                child: Text(value, maxLines: Utils.one, style: valueStyle))
           ],
         ),
       ),

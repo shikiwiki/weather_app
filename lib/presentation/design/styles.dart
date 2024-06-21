@@ -17,7 +17,7 @@ const parameterStyle = TextStyle(
 
 const valueStyle = TextStyle(
   color: primaryVariant,
-  fontSize: valueSize,
+  fontSize: parameterSize,
   fontWeight: FontWeight.w800,
 );
 

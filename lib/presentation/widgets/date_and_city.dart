@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/presentation/design/colors.dart';
-import 'package:weather_app/presentation/design/dimensions.dart';
+
+import '../design/colors.dart';
+import '../design/dimensions.dart';
 
 class DateAndCityCard extends StatelessWidget {
   const DateAndCityCard({super.key});

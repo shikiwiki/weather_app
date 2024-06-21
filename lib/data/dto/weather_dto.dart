@@ -90,9 +90,27 @@ class WeatherDto {
         pressure: '${main?.pressure.toString() ?? ''} mbar',
         humidity: '${main?.humidity.toString() ?? ''}%',
         windSpeed: '${wind?.speed.toString() ?? ''} km/h',
-        sunrise: Utils.extractTime(sys?.sunrise),
-        sunset: Utils.extractTime(sys?.sunset),
+        sunrise: countTime(sys!.sunrise!),
+        sunset: countTime(sys!.sunset!),
       );
+
+  String countTime(int rawTime) {
+    var result = DateTime.fromMillisecondsSinceEpoch(rawTime * 1000)
+        .add(const Duration(hours: 3));
+    StringBuffer sb = StringBuffer();
+    sb.write(result.hour);
+    sb.write(":");
+    sb.write(addZeroInFrontIfNeeded(result.minute));
+    return sb.toString();
+  }
+
+  String addZeroInFrontIfNeeded(int number) {
+    if (number < Utils.ten) {
+      return '0$number';
+    } else {
+      return number.toString();
+    }
+  }
 }
 
 class Coord {
@@ -185,9 +203,9 @@ class Main {
 }
 
 class Wind {
-  double? speed;
+  num? speed;
   int? deg;
-  double? gust;
+  num? gust;
 
   Wind({this.speed, this.deg, this.gust});
 
