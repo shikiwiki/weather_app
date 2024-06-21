@@ -20,3 +20,9 @@ const valueStyle = TextStyle(
   fontSize: valueSize,
   fontWeight: FontWeight.w800,
 );
+
+const errorStyle = TextStyle(
+  color: Colors.white,
+  fontSize: errorSize,
+  fontWeight: FontWeight.w400,
+);

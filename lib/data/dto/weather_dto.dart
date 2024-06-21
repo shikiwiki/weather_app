@@ -83,16 +83,16 @@ class WeatherDto {
   }
 
   WeatherModel toDomain() => WeatherModel(
-    sky: weather?[Utils.zero].main ?? '',
-    description: weather?[Utils.zero].description ?? '',
-    temperature: Utils.kelvinToCelsius(main?.temp),
-    feelsLike: Utils.kelvinToCelsius(main?.feelsLike),
-    pressure: '${main?.pressure.toString() ?? ''} mbar',
-    humidity: '${main?.humidity.toString() ?? ''}%',
-    windSpeed: '${wind?.speed.toString() ?? ''} km/h',
-    sunrise: Utils.extractTime(sys?.sunrise.toString()),
-    sunset: Utils.extractTime(sys?.sunset.toString()),
-  );
+        sky: weather?[Utils.zero].main ?? '',
+        description: weather?[Utils.zero].description ?? '',
+        temperature: '${Utils.kelvinToCelsius(main?.temp)}°C',
+        feelsLike: '${Utils.kelvinToCelsius(main?.feelsLike)}°C',
+        pressure: '${main?.pressure.toString() ?? ''} mbar',
+        humidity: '${main?.humidity.toString() ?? ''}%',
+        windSpeed: '${wind?.speed.toString() ?? ''} km/h',
+        sunrise: Utils.extractTime(sys?.sunrise),
+        sunset: Utils.extractTime(sys?.sunset),
+      );
 }
 
 class Coord {
