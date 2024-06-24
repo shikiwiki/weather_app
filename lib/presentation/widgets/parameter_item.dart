@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import '../design/styles.dart';
-import '../design/dimensions.dart';
-import '../../utils/utils.dart';
 
-class Item extends StatelessWidget {
+import '../../utils/utils.dart';
+import '../design/dimensions.dart';
+import '../design/styles.dart';
+
+class ParameterItem extends StatelessWidget {
   final String parameterType;
   final String value;
   final IconData? icon;
 
-  const Item(
+  const ParameterItem(
       {super.key, required this.parameterType, required this.value, this.icon});
 
   @override

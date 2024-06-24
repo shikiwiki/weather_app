@@ -83,6 +83,8 @@ class WeatherDto {
   }
 
   WeatherModel toDomain() => WeatherModel(
+        date: countDate(dt!),
+        cityWithCountryCode: '$name\n${sys!.country}',
         sky: weather?[Utils.zero].main ?? '',
         description: weather?[Utils.zero].description ?? '',
         temperature: '${Utils.kelvinToCelsius(main?.temp)}°C',
@@ -94,9 +96,9 @@ class WeatherDto {
         sunset: countTime(sys!.sunset!),
       );
 
-  String countTime(int rawTime) {
-    var result = DateTime.fromMillisecondsSinceEpoch(rawTime * 1000)
-        .add(const Duration(hours: 3));
+  String countTime(int timestamp) {
+    var result = DateTime.fromMillisecondsSinceEpoch(timestamp * Utils.thousand)
+        .add(const Duration(hours: Utils.three));
     StringBuffer sb = StringBuffer();
     sb.write(result.hour);
     sb.write(":");
@@ -104,9 +106,20 @@ class WeatherDto {
     return sb.toString();
   }
 
+  String countDate(int timestamp) {
+    var result = DateTime.fromMillisecondsSinceEpoch(timestamp * Utils.thousand)
+        .add(const Duration(hours: Utils.three));
+    StringBuffer sb = StringBuffer();
+    sb.write(Utils.weekDayName(result.weekday));
+    sb.write("\n");
+    sb.write(Utils.monthName(result.month));
+    sb.write(', ${result.day}');
+    return sb.toString();
+  }
+
   String addZeroInFrontIfNeeded(int number) {
     if (number < Utils.ten) {
-      return '0$number';
+      return '${Utils.zero}$number';
     } else {
       return number.toString();
     }

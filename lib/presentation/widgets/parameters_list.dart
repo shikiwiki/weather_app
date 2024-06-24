@@ -6,7 +6,8 @@ import '../../utils/utils.dart';
 import '../design/colors.dart';
 import '../design/dimensions.dart';
 import '../design/styles.dart';
-import 'item.dart';
+import '../widgets/date_and_city.dart';
+import 'parameter_item.dart';
 
 class ParametersList extends StatefulWidget {
   const ParametersList({super.key});
@@ -59,21 +60,29 @@ class _ParametersListState extends State<ParametersList> {
                   ));
             } else {
               return Stack(
-                children: <Widget>[
+                children: [
                   ListView.separated(
-                      itemCount: 9,
-                      padding: const EdgeInsets.all(parameterPadding),
-                      separatorBuilder: (BuildContext context, int index) {
-                        return const SizedBox(height: separatorHeight);
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        final parameter = parameters?[index];
-
-                        return Item(
-                            parameterType: parameter?.parameterType ?? '',
-                            value: parameter?.value ?? '',
-                            icon: parameter?.icon);
-                      })
+                    itemCount: parameters!.length + 1,
+                    padding: const EdgeInsets.all(parameterPadding),
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const SizedBox(height: separatorHeight);
+                    },
+                    itemBuilder: (BuildContext context, int index) {
+                      if (index == Utils.zero) {
+                        return DateAndCity(
+                          date: snapshot.data?.date ?? '',
+                          cityWithCountryCode:
+                              snapshot.data?.cityWithCountryCode ?? '',
+                        );
+                      } else {
+                        final parameter = parameters[index - Utils.one];
+                        return ParameterItem(
+                            parameterType: parameter.parameterType,
+                            value: parameter.value,
+                            icon: parameter.icon);
+                      }
+                    },
+                  ),
                 ],
               );
             }

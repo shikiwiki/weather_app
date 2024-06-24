@@ -8,3 +8,5 @@ const Color black = Color.fromRGBO(0, 0, 0, 1.0);
 const Color darkGrey = Color.fromRGBO(84, 84, 84, 1.0);
 const Color errorBackground = Color.fromRGBO(255, 150, 150, 1.0);
 const Color white = Color.fromRGBO(255, 255, 255, 1.0);
+const Color blue = Color.fromRGBO(60, 100, 255, 1.0);
+const Color darkBlue = Color.fromRGBO(25, 40, 100, 1.0);
