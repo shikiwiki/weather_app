@@ -28,66 +28,80 @@ class _ParametersListState extends State<ParametersList> {
         () => GetWeatherUseCase().getWeather());
   }
 
+  Future<void> _handleRefresh() async {
+    await Future.delayed(const Duration(seconds: Utils.requestDuration));
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: weather,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            final parameters = snapshot.data?.toParameterList();
-            if (snapshot.hasError) {
-              return Dialog(
-                  backgroundColor: errorBackground,
-                  child: Padding(
-                    padding: const EdgeInsets.all(errorPadding),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          snapshot.error.toString(),
-                          style: errorStyle,
-                        ),
-                        const SizedBox(height: separatorHeight),
-                        const Icon(
-                          Icons.error,
-                          color: white,
-                          size: errorIconSize,
-                        ),
-                      ],
+    return RefreshIndicator(
+      triggerMode: RefreshIndicatorTriggerMode.anywhere,
+      onRefresh: _handleRefresh,
+      color: primary,
+      backgroundColor: secondary,
+      strokeWidth: refreshStrokeWidth,
+      child: FutureBuilder(
+          future: weather,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              final parameters = snapshot.data?.toParameterList();
+              if (snapshot.hasError) {
+                return Dialog(
+                    backgroundColor: errorBackground,
+                    child: Padding(
+                      padding: const EdgeInsets.all(errorPadding),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            snapshot.error.toString(),
+                            style: errorStyle,
+                          ),
+                          const SizedBox(height: separatorHeight),
+                          const Icon(
+                            Icons.error,
+                            color: white,
+                            size: errorIconSize,
+                          ),
+                        ],
+                      ),
+                    ));
+              } else {
+                return Stack(
+                  children: [
+                    ListView.separated(
+                      itemCount: parameters!.length + Utils.one,
+                      padding: const EdgeInsets.all(parameterPadding),
+                      separatorBuilder: (BuildContext context, int index) {
+                        return const SizedBox(height: separatorHeight);
+                      },
+                      itemBuilder: (BuildContext context, int index) {
+                        if (index == Utils.zero) {
+                          return DateAndCity(
+                            date: snapshot.data?.date ?? '',
+                            cityWithCountryCode:
+                                '${snapshot.data?.location?.city}${Utils.enterSymbol}${snapshot.data?.location?.countryCode}',
+                            location:
+                                snapshot.data?.location ?? Location.empty(),
+                          );
+                        } else {
+                          final parameter = parameters[index - Utils.one];
+                          return ParameterItem(
+                              parameterType: parameter.parameterType,
+                              value: parameter.value,
+                              icon: parameter.icon);
+                        }
+                      },
                     ),
-                  ));
+                  ],
+                );
+              }
             } else {
-              return Stack(
-                children: [
-                  ListView.separated(
-                    itemCount: parameters!.length + Utils.one,
-                    padding: const EdgeInsets.all(parameterPadding),
-                    separatorBuilder: (BuildContext context, int index) {
-                      return const SizedBox(height: separatorHeight);
-                    },
-                    itemBuilder: (BuildContext context, int index) {
-                      if (index == Utils.zero) {
-                        return DateAndCity(
-                          date: snapshot.data?.date ?? '',
-                          cityWithCountryCode:
-                              '${snapshot.data?.location?.city}${Utils.enterSymbol}${snapshot.data?.location?.countryCode}',
-                          location: snapshot.data?.location ?? Location.empty(),
-                        );
-                      } else {
-                        final parameter = parameters[index - Utils.one];
-                        return ParameterItem(
-                            parameterType: parameter.parameterType,
-                            value: parameter.value,
-                            icon: parameter.icon);
-                      }
-                    },
-                  ),
-                ],
-              );
+              return const Center(child: CircularProgressIndicator());
             }
-          } else {
-            return const Center(child: CircularProgressIndicator());
-          }
-        });
+          }),
+    );
   }
 }

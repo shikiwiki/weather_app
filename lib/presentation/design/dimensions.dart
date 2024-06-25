@@ -21,5 +21,6 @@ const double valuePadding = 16;
 const double errorPadding = 20;
 
 const double dateStrokeWidth = 2;
+const double refreshStrokeWidth = 3;
 
 const double cityLetterSpacing = 2;
