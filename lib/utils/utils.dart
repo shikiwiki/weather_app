@@ -30,10 +30,16 @@ class Utils {
   static const String mapAsset = 'assets/images/map.svg';
 
   static const String date = 'date';
+  static const String location = 'location';
   static const String enterSymbol = '\n';
-  static const String detailsStartPart = 'Today we have\n';
-  static const String detailsEndPart =
+  static const String dateDetailsStartPart = 'Today we have\n';
+  static const String dateDetailsEndPart =
       '\n\n- the best day\nto start making\nyour dreams come true!';
+
+  static const String cityDetailsPart1 = 'Your are now in\n';
+  static const String cityDetailsPart2 = '\nlocated in\n';
+  static const String cityDetailsPart3 = '\nIt is on longitude of\n';
+  static const String cityDetailsPart4 = '\nand latitude of\n';
 
   static const String baseUrl =
       'https://api.openweathermap.org/data/2.5/weather';

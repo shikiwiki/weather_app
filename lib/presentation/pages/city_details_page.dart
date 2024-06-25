@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/domain/model/location.dart';
 
+import '../../domain/model/location.dart';
 import '../../utils/utils.dart';
 import '../design/styles.dart';
 import '../widgets/weather_app_bar.dart';
@@ -11,7 +11,7 @@ class CityDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final args =
-    ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     final location = args['location'] as Location;
     final city = location.city;
     final countryCode = location.countryCode;
@@ -26,36 +26,36 @@ class CityDetailsPage extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(children: <TextSpan>[
               TextSpan(
-                text: 'Your are now in\n',
-                style: dateDetailsStyle,
+                text: Utils.cityDetailsPart1,
+                style: detailsStyle,
               ),
               TextSpan(
                 text: city,
-                style: dateStyle,
+                style: boldDetailsStyle,
               ),
               TextSpan(
-                text: '\nlocated in\n',
-                style: dateDetailsStyle,
+                text: Utils.cityDetailsPart2,
+                style: detailsStyle,
               ),
               TextSpan(
                 text: Utils.countryByCode(countryCode!),
-                style: dateStyle,
+                style: boldDetailsStyle,
               ),
               TextSpan(
-                text: '\nIt is on longitude of\n',
-                style: dateDetailsStyle,
+                text: Utils.cityDetailsPart3,
+                style: detailsStyle,
               ),
               TextSpan(
                 text: longitude.toString(),
-                style: dateStyle,
+                style: boldDetailsStyle,
               ),
               TextSpan(
-                text: '\nand latitude of\n',
-                style: dateDetailsStyle,
+                text: Utils.cityDetailsPart4,
+                style: detailsStyle,
               ),
               TextSpan(
                 text: latitude.toString(),
-                style: dateStyle,
+                style: boldDetailsStyle,
               ),
             ]),
           ),

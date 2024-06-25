@@ -21,16 +21,16 @@ class DateDetailsPage extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(children: <TextSpan>[
               TextSpan(
-                text: Utils.detailsStartPart,
-                style: dateDetailsStyle,
+                text: Utils.dateDetailsStartPart,
+                style: detailsStyle,
               ),
               TextSpan(
                 text: weekDay,
-                style: dateStyle,
+                style: boldDetailsStyle,
               ),
               TextSpan(
-                text: Utils.detailsEndPart,
-                style: dateDetailsStyle,
+                text: Utils.dateDetailsEndPart,
+                style: detailsStyle,
               ),
             ]),
           ),

@@ -70,7 +70,7 @@ class _ParametersListState extends State<ParametersList> {
                         return DateAndCity(
                           date: snapshot.data?.date ?? '',
                           cityWithCountryCode:
-                              '${snapshot.data?.location?.city}\n${snapshot.data?.location?.countryCode}',
+                              '${snapshot.data?.location?.city}${Utils.enterSymbol}${snapshot.data?.location?.countryCode}',
                           location: snapshot.data?.location ?? Location.empty(),
                         );
                       } else {

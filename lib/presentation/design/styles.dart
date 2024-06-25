@@ -29,7 +29,7 @@ const errorStyle = TextStyle(
   fontWeight: FontWeight.w400,
 );
 
-var dateStyle = TextStyle(
+var boldDetailsStyle = TextStyle(
   fontSize: dateSize,
   foreground: Paint()
     ..style = PaintingStyle.stroke
@@ -47,6 +47,6 @@ const cityStyle = TextStyle(
   fontStyle: FontStyle.italic,
 );
 
-var dateDetailsStyle = GoogleFonts.aBeeZee(
+var detailsStyle = GoogleFonts.aBeeZee(
   textStyle: const TextStyle(fontSize: detailsSize, color: orange),
 );

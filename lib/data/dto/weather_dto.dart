@@ -1,5 +1,4 @@
 import '../../domain/model/location.dart';
-
 import '../../domain/model/weather_model.dart';
 import '../../utils/utils.dart';
 

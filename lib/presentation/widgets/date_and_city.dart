@@ -58,7 +58,7 @@ class DateAndCity extends StatelessWidget {
                       height: cardHeight,
                       width: MediaQuery.sizeOf(context).width *
                           Utils.dateCardMultiplier,
-                      child: Center(child: Text(date, style: dateStyle)),
+                      child: Center(child: Text(date, style: boldDetailsStyle)),
                     ),
                   ],
                 ),
@@ -74,7 +74,7 @@ class DateAndCity extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, Utils.cityDetailsRoute,
-                      arguments: {'location': location});
+                      arguments: {Utils.location: location});
                 },
                 child: Stack(
                   children: <Widget>[
