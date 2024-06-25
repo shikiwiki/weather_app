@@ -14,7 +14,26 @@ class Utils {
   static const double dateCardMultiplier = 0.6;
   static const double separatorMultiplier = 0.01;
   static const double cityMultiplier = 0.3;
-  static const double dateOpacity = 0.5;
+  static const double cityBackgroundMultiplier = 0.2;
+  static const double dateBackgroundOpacity = 0.5;
+  static const double cityBackgroundOpacity = 0.75;
+
+  static const String appName = 'Weather App';
+  static const String mainPageName = 'Today';
+
+  static const String dateDetailsRoute = '/date_details';
+
+  static const String playwriteFontFamily = 'Playwrite';
+
+  static const String skyAsset = 'assets/images/sky.png';
+  static const String mapAsset = 'assets/images/map.svg';
+
+  static const String date = 'date';
+  static const String enterSymbol = '\n';
+  static const String detailsStartPart = 'Today we have\n';
+  static const String detailsEndPart =
+      '\n\n- the best day\nto start making\nyour dreams come true!';
+
   static const String baseUrl =
       'https://api.openweathermap.org/data/2.5/weather';
   static const String key = '9eaa0f8a337234fc6e0bc3ca2f5a78dd';

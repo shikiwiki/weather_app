@@ -29,12 +29,9 @@ class _ParametersListState extends State<ParametersList> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('DEBUG_FUTURE_WEATHER: $weather');
-
     return FutureBuilder(
         future: weather,
         builder: (context, snapshot) {
-          debugPrint('DEBUG_SNAPSHOT: ${snapshot.data}');
           if (snapshot.connectionState == ConnectionState.done) {
             final parameters = snapshot.data?.toParameterList();
             if (snapshot.hasError) {

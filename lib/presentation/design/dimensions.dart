@@ -1,6 +1,7 @@
 const double errorSize = 16;
 const double citySize = 18;
 const double parameterSize = 20;
+const double detailsSize = 24;
 const double titleSize = 28;
 const double dateSize = 30;
 const double errorIconSize = 36;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../../utils/utils.dart';
 import 'colors.dart';
 import 'dimensions.dart';
 
@@ -33,7 +35,7 @@ var dateStyle = TextStyle(
     ..style = PaintingStyle.stroke
     ..strokeWidth = dateStrokeWidth
     ..color = blue,
-  fontFamily: 'Playwrite',
+  fontFamily: Utils.playwriteFontFamily,
 );
 
 const cityStyle = TextStyle(
@@ -43,4 +45,8 @@ const cityStyle = TextStyle(
   decorationStyle: TextDecorationStyle.dotted,
   decoration: TextDecoration.underline,
   fontStyle: FontStyle.italic,
+);
+
+var dateDetailsStyle = GoogleFonts.aBeeZee(
+  textStyle: const TextStyle(fontSize: detailsSize, color: orange),
 );

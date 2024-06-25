@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../presentation/design/colors.dart';
+import '../presentation/pages/details_page.dart';
+import '../utils/utils.dart';
 import 'pages/today.dart';
 
 void main() {
@@ -12,12 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Weather App',
+      title: Utils.appName,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        colorScheme: ColorScheme.fromSeed(seedColor: orange),
         useMaterial3: true,
       ),
       home: const Today(),
+      routes: {
+        Utils.dateDetailsRoute: (context) => const DetailsPage(),
+      },
     );
   }
 }
