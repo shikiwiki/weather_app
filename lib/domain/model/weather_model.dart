@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/domain/model/location.dart';
 import 'parameter.dart';
 
 class WeatherModel {
 
   final String date;
-  final String cityWithCountryCode;
+  // final String cityWithCountryCode;
   final String sky;
   final String description;
   final String temperature;
@@ -14,10 +15,11 @@ class WeatherModel {
   final String windSpeed;
   final String sunrise;
   final String sunset;
+  final Location? location;
 
   const WeatherModel({
     this.date = '',
-    this.cityWithCountryCode = '',
+    // this.cityWithCountryCode = '',
     this.sky = '',
     this.description = '',
     this.temperature = '',
@@ -27,9 +29,10 @@ class WeatherModel {
     this.windSpeed = '',
     this.sunrise = '',
     this.sunset = '',
+    this.location,
   });
 
-  Map<String, String> getDateAndCity() => {'date': date, 'city': cityWithCountryCode};
+  // Map<String, String> getDateAndCity() => {'date': date, 'city': cityWithCountryCode};
 
   List<Parameter> toParameterList() => [
       Parameter(parameterType: 'sky', value: sky, icon: Icons.cloud),

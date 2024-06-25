@@ -22,6 +22,7 @@ class Utils {
   static const String mainPageName = 'Today';
 
   static const String dateDetailsRoute = '/date_details';
+  static const String cityDetailsRoute = '/city_details';
 
   static const String playwriteFontFamily = 'Playwrite';
 
@@ -77,5 +78,30 @@ class Utils {
       12 => 'December',
       _ => ''
     };
+  }
+
+  static String countryByCode(String code) {
+    switch (code) {
+      case ('IN'):
+        return 'India';
+      case ('BY'):
+        return 'Belarus';
+      case ('AZ'):
+        return 'Azerbaijan';
+      case ('KZ'):
+        return 'Kazakhstan';
+      case ('UK'):
+        return 'Ukraine';
+      case ('RU'):
+        return 'Russia';
+      case ('CY'):
+        return 'Cyprus';
+      case ('PL'):
+        return 'Poland';
+      case ('CZ'):
+        return 'Czech Republic';
+      default:
+        return '$code country code';
+    }
   }
 }

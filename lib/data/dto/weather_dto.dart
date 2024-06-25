@@ -1,3 +1,5 @@
+import '../../domain/model/location.dart';
+
 import '../../domain/model/weather_model.dart';
 import '../../utils/utils.dart';
 
@@ -83,18 +85,23 @@ class WeatherDto {
   }
 
   WeatherModel toDomain() => WeatherModel(
-        date: countDate(dt!),
-        cityWithCountryCode: '$name\n${sys!.country}',
-        sky: weather?[Utils.zero].main ?? '',
-        description: weather?[Utils.zero].description ?? '',
-        temperature: '${Utils.kelvinToCelsius(main?.temp)}°C',
-        feelsLike: '${Utils.kelvinToCelsius(main?.feelsLike)}°C',
-        pressure: '${main?.pressure.toString() ?? ''} mbar',
-        humidity: '${main?.humidity.toString() ?? ''}%',
-        windSpeed: '${wind?.speed.toString() ?? ''} km/h',
-        sunrise: countTime(sys!.sunrise!),
-        sunset: countTime(sys!.sunset!),
-      );
+      date: countDate(dt!),
+      // cityWithCountryCode: '$name\n${sys!.country}',
+      sky: weather?[Utils.zero].main ?? '',
+      description: weather?[Utils.zero].description ?? '',
+      temperature: '${Utils.kelvinToCelsius(main?.temp)}°C',
+      feelsLike: '${Utils.kelvinToCelsius(main?.feelsLike)}°C',
+      pressure: '${main?.pressure.toString() ?? ''} mbar',
+      humidity: '${main?.humidity.toString() ?? ''}%',
+      windSpeed: '${wind?.speed.toString() ?? ''} km/h',
+      sunrise: countTime(sys!.sunrise!),
+      sunset: countTime(sys!.sunset!),
+      location: Location(
+        city: name ?? '',
+        countryCode: sys?.country ?? '',
+        longitude: coord?.lon ?? 0,
+        latitude: coord?.lat ?? 0,
+      ));
 
   String countTime(int timestamp) {
     var result = DateTime.fromMillisecondsSinceEpoch(timestamp * Utils.thousand)

@@ -4,8 +4,8 @@ import '../../utils/utils.dart';
 import '../design/styles.dart';
 import '../widgets/weather_app_bar.dart';
 
-class DetailsPage extends StatelessWidget {
-  const DetailsPage({super.key});
+class DateDetailsPage extends StatelessWidget {
+  const DateDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

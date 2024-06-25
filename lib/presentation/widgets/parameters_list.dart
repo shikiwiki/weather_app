@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../domain/model/location.dart';
 import '../../domain/model/weather_model.dart';
 import '../../domain/use_cases/get_weather_use_case.dart';
 import '../../utils/utils.dart';
@@ -59,7 +60,7 @@ class _ParametersListState extends State<ParametersList> {
               return Stack(
                 children: [
                   ListView.separated(
-                    itemCount: parameters!.length + 1,
+                    itemCount: parameters!.length + Utils.one,
                     padding: const EdgeInsets.all(parameterPadding),
                     separatorBuilder: (BuildContext context, int index) {
                       return const SizedBox(height: separatorHeight);
@@ -69,7 +70,8 @@ class _ParametersListState extends State<ParametersList> {
                         return DateAndCity(
                           date: snapshot.data?.date ?? '',
                           cityWithCountryCode:
-                              snapshot.data?.cityWithCountryCode ?? '',
+                              '${snapshot.data?.location?.city}\n${snapshot.data?.location?.countryCode}',
+                          location: snapshot.data?.location ?? Location.empty(),
                         );
                       } else {
                         final parameter = parameters[index - Utils.one];

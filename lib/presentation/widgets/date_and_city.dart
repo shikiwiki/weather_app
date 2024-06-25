@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../domain/model/location.dart';
 import '../../utils/utils.dart';
 import '../design/colors.dart';
 import '../design/dimensions.dart';
@@ -9,9 +10,14 @@ import '../design/styles.dart';
 class DateAndCity extends StatelessWidget {
   final String date;
   final String cityWithCountryCode;
+  final Location location;
 
-  const DateAndCity(
-      {super.key, required this.date, required this.cityWithCountryCode});
+  const DateAndCity({
+    super.key,
+    required this.date,
+    required this.cityWithCountryCode,
+    required this.location,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -65,36 +71,42 @@ class DateAndCity extends StatelessWidget {
                     BorderRadius.all(Radius.circular(itemBorderRadius)),
               ),
               color: secondary,
-              child: Stack(
-                children: <Widget>[
-                  SizedBox(
-                    width: screenWidth * Utils.cityMultiplier,
-                    child: Opacity(
-                      opacity: Utils.cityBackgroundOpacity,
-                      child: SvgPicture.asset(
-                        fit: BoxFit.fill,
-                        Utils.mapAsset,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Utils.cityDetailsRoute,
+                      arguments: {'location': location});
+                },
+                child: Stack(
+                  children: <Widget>[
+                    SizedBox(
+                      width: screenWidth * Utils.cityMultiplier,
+                      child: Opacity(
+                        opacity: Utils.cityBackgroundOpacity,
+                        child: SvgPicture.asset(
+                          fit: BoxFit.fill,
+                          Utils.mapAsset,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: cardHeight,
-                    width: screenWidth * Utils.cityMultiplier,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.location_on),
-                          const SizedBox(height: separatorHeight),
-                          Text(cityWithCountryCode,
-                              textAlign: TextAlign.end,
-                              maxLines: Utils.two,
-                              style: cityStyle),
-                        ],
+                    SizedBox(
+                      height: cardHeight,
+                      width: screenWidth * Utils.cityMultiplier,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.location_on),
+                            const SizedBox(height: separatorHeight),
+                            Text(cityWithCountryCode,
+                                textAlign: TextAlign.end,
+                                maxLines: Utils.two,
+                                style: cityStyle),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
