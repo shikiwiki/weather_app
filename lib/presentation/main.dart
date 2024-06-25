@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/presentation/pages/city_details_page.dart';
+import 'package:weather_app/presentation/pages/search_city.dart';
 
 import '../presentation/design/colors.dart';
 import '../presentation/pages/date_details_page.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Utils.dateDetailsRoute: (context) => const DateDetailsPage(),
         Utils.cityDetailsRoute: (context) => const CityDetailsPage(),
+        Utils.searchRoute: (context) => const SearchCity(),
       },
     );
   }

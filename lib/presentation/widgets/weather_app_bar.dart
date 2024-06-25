@@ -6,7 +6,6 @@ import '../design/dimensions.dart';
 import '../design/styles.dart';
 
 class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
-
   const WeatherAppBar({super.key});
 
   @override
@@ -14,7 +13,7 @@ class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
     if (Navigator.canPop(context)) {
       return AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back, color: white),
           onPressed: () {
             Navigator.of(context).pop();
           },

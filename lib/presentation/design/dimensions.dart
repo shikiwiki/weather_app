@@ -5,6 +5,7 @@ const double detailsSize = 24;
 const double titleSize = 28;
 const double dateSize = 30;
 const double errorIconSize = 36;
+const double searchIconSize = 28;
 
 const double separatorHeight = 10;
 const double topBarHeight = 50;

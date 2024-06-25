@@ -23,14 +23,18 @@ class Utils {
 
   static const String dateDetailsRoute = '/date_details';
   static const String cityDetailsRoute = '/city_details';
+  static const String searchRoute = '/search';
 
   static const String playwriteFontFamily = 'Playwrite';
 
   static const String skyAsset = 'assets/images/sky.png';
   static const String mapAsset = 'assets/images/map.svg';
 
+  static const String searchCityHint = 'input your city';
   static const String date = 'date';
+  static const String minsk = 'minsk';
   static const String location = 'location';
+  static const String empty = '';
   static const String enterSymbol = '\n';
   static const String dateDetailsStartPart = 'Today we have\n';
   static const String dateDetailsEndPart =

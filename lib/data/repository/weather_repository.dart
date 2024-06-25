@@ -4,11 +4,11 @@ import '../../utils/utils.dart';
 import '../dto/weather_dto.dart';
 
 class WeatherRepository {
-  Future<WeatherDto> getWeather() async {
+  Future<WeatherDto> getWeather(String city) async {
     var response = await Dio().get(
       Utils.baseUrl,
       queryParameters: {
-        'q': Utils.city,
+        'q': city,
         'appid': Utils.key,
       },
     );

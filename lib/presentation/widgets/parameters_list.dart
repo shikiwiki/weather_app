@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/model/location.dart';
@@ -25,7 +28,8 @@ class _ParametersListState extends State<ParametersList> {
     super.initState();
     weather = Future<WeatherModel>.delayed(
         const Duration(seconds: Utils.requestDuration),
-        () => GetWeatherUseCase().getWeather());
+        () => GetWeatherUseCase().
+        getWeather('kiev'));
   }
 
   Future<void> _handleRefresh() async {
@@ -80,7 +84,7 @@ class _ParametersListState extends State<ParametersList> {
                       itemBuilder: (BuildContext context, int index) {
                         if (index == Utils.zero) {
                           return DateAndCity(
-                            date: snapshot.data?.date ?? '',
+                            date: snapshot.data?.date ?? Utils.empty,
                             cityWithCountryCode:
                                 '${snapshot.data?.location?.city}${Utils.enterSymbol}${snapshot.data?.location?.countryCode}',
                             location:
@@ -98,6 +102,8 @@ class _ParametersListState extends State<ParametersList> {
                   ],
                 );
               }
+            } else if (Platform.isIOS) {
+              return const Center(child: CupertinoActivityIndicator());
             } else {
               return const Center(child: CircularProgressIndicator());
             }
