@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/utils.dart';
 import '../design/colors.dart';
 import '../design/dimensions.dart';
+import '../search_delegates/custom_search_delegate.dart';
 import '../widgets/parameters_list.dart';
 import '../widgets/weather_app_bar.dart';
 
@@ -20,16 +20,18 @@ class Today extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(parameterPadding),
-        child: FloatingActionButton(
-          backgroundColor: secondary,
-          splashColor: white,
-          onPressed: () {
-            Navigator.pushNamed(context, Utils.searchRoute);
-          },
-          child: const Icon(
-            Icons.search,
-            size: searchIconSize,
-            color: primary,
+        child: Builder(
+          builder: (context) => FloatingActionButton(
+            backgroundColor: secondary,
+            splashColor: white,
+            onPressed: () {
+              showSearch(context: context, delegate: CustomSearchDelegate());
+            },
+            child: const Icon(
+              Icons.search,
+              size: searchIconSize,
+              color: primary,
+            ),
           ),
         ),
       ),

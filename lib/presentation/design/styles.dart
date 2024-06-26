@@ -50,3 +50,12 @@ const cityStyle = TextStyle(
 var detailsStyle = GoogleFonts.aBeeZee(
   textStyle: const TextStyle(fontSize: detailsSize, color: orange),
 );
+
+const searchCityStyle = TextStyle(
+  fontSize: citySize,
+  color: grey,
+  letterSpacing: cityLetterSpacing,
+  decorationStyle: TextDecorationStyle.dotted,
+  decoration: TextDecoration.underline,
+  fontStyle: FontStyle.italic,
+);

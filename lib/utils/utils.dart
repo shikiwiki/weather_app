@@ -24,6 +24,7 @@ class Utils {
   static const String dateDetailsRoute = '/date_details';
   static const String cityDetailsRoute = '/city_details';
   static const String searchRoute = '/search';
+  static const String homeRoute = '/today';
 
   static const String playwriteFontFamily = 'Playwrite';
 
@@ -32,6 +33,7 @@ class Utils {
 
   static const String searchCityHint = 'input your city';
   static const String date = 'date';
+  static const String city = 'city';
   static const String minsk = 'minsk';
   static const String location = 'location';
   static const String empty = '';
@@ -48,7 +50,6 @@ class Utils {
   static const String baseUrl =
       'https://api.openweathermap.org/data/2.5/weather';
   static const String key = '9eaa0f8a337234fc6e0bc3ca2f5a78dd';
-  static const String city = 'minsk';
 
   static int randomColorValue() =>
       (math.Random().nextDouble() * Utils.colorMultiplier).toInt();

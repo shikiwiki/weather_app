@@ -3,8 +3,8 @@ import 'package:weather_app/data/repository/weather_repository.dart';
 import 'package:weather_app/domain/use_cases/get_weather_use_case.dart';
 
 void main() async {
-  var weather = await GetWeatherUseCase().getWeather();
-  var rawResult = (await WeatherRepository().getWeather()).toJson();
+  var weather = await GetWeatherUseCase().getWeather('minsk');
+  var rawResult = (await WeatherRepository().getWeather('minsk')).toJson();
   debugPrint(rawResult.toString());
   debugPrint(weather.sky);
   debugPrint(weather.temperature);

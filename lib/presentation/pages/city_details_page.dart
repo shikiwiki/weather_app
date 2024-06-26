@@ -12,7 +12,7 @@ class CityDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final args =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
-    final location = args['location'] as Location;
+    final location = args[Utils.location] as Location;
     final city = location.city;
     final countryCode = location.countryCode;
     final longitude = location.longitude;
