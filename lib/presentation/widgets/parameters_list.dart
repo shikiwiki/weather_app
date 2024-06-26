@@ -26,14 +26,16 @@ class _ParametersListState extends State<ParametersList> {
   @override
   void initState() {
     super.initState();
-    // final args =
-    //     ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
-    // final city = args[Utils.city] ?? Utils.minsk;
+    late Map<String, dynamic>? args =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    late dynamic city = args?[Utils.city] ?? Utils.minsk;
 
     weather = Future<WeatherModel>.delayed(
         const Duration(seconds: Utils.requestDuration),
-        () => GetWeatherUseCase().getWeather('minsk'));
-    // () => GetWeatherUseCase().getWeather((city as String)));
+        () {
+          debugPrint("InitStateTag. args: $args, city: $city");
+          return GetWeatherUseCase().getWeather(city);
+        });
   }
 
   Future<void> _handleRefresh() async {

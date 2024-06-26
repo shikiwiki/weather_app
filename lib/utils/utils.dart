@@ -3,7 +3,6 @@ import 'dart:math' as math;
 class Utils {
   static const int zero = 0;
   static const int one = 1;
-  static const int two = 2;
   static const int three = 3;
   static const int ten = 10;
   static const int thousand = 1000;
@@ -14,7 +13,6 @@ class Utils {
   static const double dateCardMultiplier = 0.6;
   static const double separatorMultiplier = 0.01;
   static const double cityMultiplier = 0.3;
-  static const double cityBackgroundMultiplier = 0.2;
   static const double dateBackgroundOpacity = 0.5;
   static const double cityBackgroundOpacity = 0.75;
 
@@ -23,10 +21,10 @@ class Utils {
 
   static const String dateDetailsRoute = '/date_details';
   static const String cityDetailsRoute = '/city_details';
-  static const String searchRoute = '/search';
   static const String homeRoute = '/today';
 
   static const String playwriteFontFamily = 'Playwrite';
+  static const String celsiusSign = '°C';
 
   static const String skyAsset = 'assets/images/sky.png';
   static const String mapAsset = 'assets/images/map.svg';
@@ -56,7 +54,7 @@ class Utils {
 
   static String kelvinToCelsius(double? kelvin) {
     var fullTemperature =
-        '${kelvin == null ? '' : (kelvin - kelvinDifference)}°C';
+        '${kelvin == null ? empty : (kelvin - kelvinDifference)}$celsiusSign';
     return fullTemperature.substring(Utils.zero, fullTemperature.indexOf('.'));
   }
 
@@ -92,25 +90,33 @@ class Utils {
   }
 
   static String countryByCode(String code) {
-    switch (code) {
-      case ('IN'):
-        return 'India';
-      case ('BY'):
-        return 'Belarus';
-      case ('AZ'):
-        return 'Azerbaijan';
-      case ('KZ'):
-        return 'Kazakhstan';
-      case ('UK'):
-        return 'Ukraine';
-      case ('RU'):
-        return 'Russia';
-      case ('CY'):
-        return 'Cyprus';
-      case ('PL'):
-        return 'Poland';
-      case ('CZ'):
-        return 'Czech Republic';
+    switch (code.toLowerCase()) {
+      case ('am'): return 'Armenia';
+      case ('az'): return 'Azerbaijan';
+      case ('bh'): return 'Bahrain';
+      case ('by'): return 'Belarus';
+      case ('cy'): return 'Cyprus';
+      case ('ge'): return 'Georgia';
+      case ('iq'): return 'Iraq';
+      case ('ir'): return 'Iran';
+      case ('il'): return 'Israel';
+      case ('jo'): return 'Jordan';
+      case ('kw'): return 'Kuwait';
+      case ('kg'): return 'Kyrgyzstan';
+      case ('lb'): return 'Lebanon';
+      case ('my'): return 'Malaysia';
+      case ('om'): return 'Oman';
+      case ('ps'): return 'Palestine';
+      case ('qa'): return 'Qatar';
+      case ('sa'): return 'Saudi Arabia';
+      case ('sy'): return 'Syria';
+      case ('th'): return 'Thailand';
+      case ('tr'): return 'Turkey';
+      case ('tm'): return 'Turkmenistan';
+      case ('ua'): return 'Ukraine';
+      case ('ae'): return 'United Arab Emirates';
+      case ('uz'): return 'Uzbekistan';
+      case ('ye'): return 'Yemen';
       default:
         return '$code country code';
     }

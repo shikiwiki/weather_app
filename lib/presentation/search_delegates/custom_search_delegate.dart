@@ -12,6 +12,7 @@ class CustomSearchDelegate extends SearchDelegate {
         );
 
   List<String> searchTerms = [
+    "Abu Dhabi", // United Arab Emirates
     "Ankara", // Turkey
     "Yerevan", // Armenia
     "Baku", // Azerbaijan
@@ -72,13 +73,8 @@ class CustomSearchDelegate extends SearchDelegate {
         return ListTile(
           title: Text(result),
           onTap: () {
-            Navigator.pushNamed(
-              context,
-              Utils.homeRoute,
-              arguments: {Utils.city: result},
-            );
             query = result;
-            close(context, matchQuery[index]);          },
+          },
         );
       },
     );
@@ -91,6 +87,15 @@ class CustomSearchDelegate extends SearchDelegate {
           close(context, null);
         },
         icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  void showResults(BuildContext context) {
+    Navigator.of(context).popAndPushNamed(
+      Utils.homeRoute,
+      arguments: {Utils.city: query},
+    );
+    super.showResults(context);
   }
 
   @override
@@ -111,11 +116,6 @@ class CustomSearchDelegate extends SearchDelegate {
         return ListTile(
           title: Text(result),
           onTap: () {
-            Navigator.pushNamed(
-              context,
-              Utils.homeRoute,
-              arguments: {Utils.city: result},
-            );
             query = result;
             close(context, matchQuery[index]);
           },

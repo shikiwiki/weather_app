@@ -99,7 +99,7 @@ class DateAndCity extends StatelessWidget {
                             const SizedBox(height: separatorHeight),
                             Text(cityWithCountryCode,
                                 textAlign: TextAlign.end,
-                                maxLines: Utils.two,
+                                maxLines: Utils.three,
                                 style: cityStyle),
                           ],
                         ),
