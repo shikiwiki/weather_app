@@ -24,7 +24,6 @@ class Utils {
   static const String homeRoute = '/today';
 
   static const String playwriteFontFamily = 'Playwrite';
-  static const String celsiusSign = '°C';
 
   static const String skyAsset = 'assets/images/sky.png';
   static const String mapAsset = 'assets/images/map.svg';
@@ -35,7 +34,16 @@ class Utils {
   static const String minsk = 'minsk';
   static const String location = 'location';
   static const String empty = '';
+  static const String celsiusSign = '°C';
+  static const String mbarSign = ' mbar';
   static const String enterSymbol = '\n';
+  static const String colonSymbol = ':';
+  static const String percentSymbol = '%';
+  static const String speedSign = ' km/h';
+
+  static const String cityQueryParam = 'q';
+  static const String keyQueryParam = 'appid';
+
   static const String dateDetailsStartPart = 'Today we have\n';
   static const String dateDetailsEndPart =
       '\n\n- the best day\nto start making\nyour dreams come true!';
@@ -44,6 +52,16 @@ class Utils {
   static const String cityDetailsPart2 = '\nlocated in\n';
   static const String cityDetailsPart3 = '\nIt is on longitude of\n';
   static const String cityDetailsPart4 = '\nand latitude of\n';
+
+  static const String sky = 'sky';
+  static const String description = 'description';
+  static const String temperature = 'temperature';
+  static const String feelsLike = 'feels like';
+  static const String pressure = 'pressure';
+  static const String humidity = 'humidity';
+  static const String windSpeed = 'wind speed';
+  static const String sunrise = 'sunrise';
+  static const String sunset = 'sunset';
 
   static const String baseUrl =
       'https://api.openweathermap.org/data/2.5/weather';

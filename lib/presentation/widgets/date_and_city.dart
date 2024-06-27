@@ -24,92 +24,91 @@ class DateAndCity extends StatelessWidget {
     final screenWidth = MediaQuery.sizeOf(context).width;
 
     return SizedBox(
-        height: cardHeight,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Card(
-              shape: const RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(itemBorderRadius)),
-              ),
-              semanticContainer: true,
-              clipBehavior: Clip.none,
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, Utils.dateDetailsRoute,
-                      arguments: {Utils.date: date});
-                },
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      width: MediaQuery.sizeOf(context).width *
-                          Utils.dateCardMultiplier,
-                      height: cardHeight,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: Image.asset(Utils.skyAsset).image,
-                          opacity: Utils.dateBackgroundOpacity,
-                        ),
+      height: cardHeight,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Card(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(itemBorderRadius)),
+            ),
+            semanticContainer: true,
+            clipBehavior: Clip.none,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Utils.dateDetailsRoute,
+                    arguments: {Utils.date: date});
+              },
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    width: MediaQuery.sizeOf(context).width *
+                        Utils.dateCardMultiplier,
+                    height: cardHeight,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: Image.asset(Utils.skyAsset).image,
+                        opacity: Utils.dateBackgroundOpacity,
                       ),
                     ),
-                    SizedBox(
-                      height: cardHeight,
-                      width: MediaQuery.sizeOf(context).width *
-                          Utils.dateCardMultiplier,
-                      child: Center(child: Text(date, style: boldDetailsStyle)),
-                    ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: cardHeight,
+                    width: MediaQuery.sizeOf(context).width *
+                        Utils.dateCardMultiplier,
+                    child: Center(child: Text(date, style: boldDetailsStyle)),
+                  ),
+                ],
               ),
             ),
-            SizedBox(width: screenWidth * Utils.separatorMultiplier),
-            Card(
-              shape: const RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(itemBorderRadius)),
-              ),
-              color: secondary,
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, Utils.cityDetailsRoute,
-                      arguments: {Utils.location: location});
-                },
-                child: Stack(
-                  children: <Widget>[
-                    SizedBox(
-                      width: screenWidth * Utils.cityMultiplier,
-                      child: Opacity(
-                        opacity: Utils.cityBackgroundOpacity,
-                        child: SvgPicture.asset(
-                          fit: BoxFit.fill,
-                          Utils.mapAsset,
-                        ),
+          ),
+          SizedBox(width: screenWidth * Utils.separatorMultiplier),
+          Card(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(itemBorderRadius)),
+            ),
+            color: secondary,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Utils.cityDetailsRoute,
+                    arguments: {Utils.location: location});
+              },
+              child: Stack(
+                children: <Widget>[
+                  SizedBox(
+                    width: screenWidth * Utils.cityMultiplier,
+                    child: Opacity(
+                      opacity: Utils.cityBackgroundOpacity,
+                      child: SvgPicture.asset(
+                        fit: BoxFit.fill,
+                        Utils.mapAsset,
                       ),
                     ),
-                    SizedBox(
-                      height: cardHeight,
-                      width: screenWidth * Utils.cityMultiplier,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(Icons.location_on),
-                            const SizedBox(height: separatorHeight),
-                            Text(cityWithCountryCode,
-                                textAlign: TextAlign.end,
-                                maxLines: Utils.three,
-                                style: cityStyle),
-                          ],
-                        ),
+                  ),
+                  SizedBox(
+                    height: cardHeight,
+                    width: screenWidth * Utils.cityMultiplier,
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.location_on),
+                          const SizedBox(height: separatorHeight),
+                          Text(cityWithCountryCode,
+                              textAlign: TextAlign.end,
+                              maxLines: Utils.three,
+                              style: cityStyle),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }

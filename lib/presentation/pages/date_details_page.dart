@@ -19,20 +19,22 @@ class DateDetailsPage extends StatelessWidget {
         child: Center(
           child: RichText(
             textAlign: TextAlign.center,
-            text: TextSpan(children: <TextSpan>[
-              TextSpan(
-                text: Utils.dateDetailsStartPart,
-                style: detailsStyle,
-              ),
-              TextSpan(
-                text: weekDay,
-                style: boldDetailsStyle,
-              ),
-              TextSpan(
-                text: Utils.dateDetailsEndPart,
-                style: detailsStyle,
-              ),
-            ]),
+            text: TextSpan(
+              children: <TextSpan>[
+                TextSpan(
+                  text: Utils.dateDetailsStartPart,
+                  style: detailsStyle,
+                ),
+                TextSpan(
+                  text: weekDay,
+                  style: boldDetailsStyle,
+                ),
+                TextSpan(
+                  text: Utils.dateDetailsEndPart,
+                  style: detailsStyle,
+                ),
+              ],
+            ),
           ),
         ),
       ),

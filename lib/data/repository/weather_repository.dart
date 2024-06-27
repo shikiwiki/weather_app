@@ -8,8 +8,8 @@ class WeatherRepository {
     var response = await Dio().get(
       Utils.baseUrl,
       queryParameters: {
-        'q': city,
-        'appid': Utils.key,
+        Utils.cityQueryParam: city,
+        Utils.keyQueryParam: Utils.key,
       },
     );
     var data = response.data as Map<String, dynamic>;

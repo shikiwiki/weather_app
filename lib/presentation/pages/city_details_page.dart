@@ -24,40 +24,42 @@ class CityDetailsPage extends StatelessWidget {
         child: Center(
           child: RichText(
             textAlign: TextAlign.center,
-            text: TextSpan(children: <TextSpan>[
-              TextSpan(
-                text: Utils.cityDetailsPart1,
-                style: detailsStyle,
-              ),
-              TextSpan(
-                text: city,
-                style: boldDetailsStyle,
-              ),
-              TextSpan(
-                text: Utils.cityDetailsPart2,
-                style: detailsStyle,
-              ),
-              TextSpan(
-                text: Utils.countryByCode(countryCode!),
-                style: boldDetailsStyle,
-              ),
-              TextSpan(
-                text: Utils.cityDetailsPart3,
-                style: detailsStyle,
-              ),
-              TextSpan(
-                text: longitude.toString(),
-                style: boldDetailsStyle,
-              ),
-              TextSpan(
-                text: Utils.cityDetailsPart4,
-                style: detailsStyle,
-              ),
-              TextSpan(
-                text: latitude.toString(),
-                style: boldDetailsStyle,
-              ),
-            ]),
+            text: TextSpan(
+              children: <TextSpan>[
+                TextSpan(
+                  text: Utils.cityDetailsPart1,
+                  style: detailsStyle,
+                ),
+                TextSpan(
+                  text: city,
+                  style: boldDetailsStyle,
+                ),
+                TextSpan(
+                  text: Utils.cityDetailsPart2,
+                  style: detailsStyle,
+                ),
+                TextSpan(
+                  text: Utils.countryByCode(countryCode!),
+                  style: boldDetailsStyle,
+                ),
+                TextSpan(
+                  text: Utils.cityDetailsPart3,
+                  style: detailsStyle,
+                ),
+                TextSpan(
+                  text: longitude.toString(),
+                  style: boldDetailsStyle,
+                ),
+                TextSpan(
+                  text: Utils.cityDetailsPart4,
+                  style: detailsStyle,
+                ),
+                TextSpan(
+                  text: latitude.toString(),
+                  style: boldDetailsStyle,
+                ),
+              ],
+            ),
           ),
         ),
       ),

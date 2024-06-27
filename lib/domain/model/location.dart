@@ -1,4 +1,4 @@
-import 'package:weather_app/utils/utils.dart';
+import '../../utils/utils.dart';
 
 class Location {
   String? city;
@@ -14,8 +14,8 @@ class Location {
   });
 
   Location.empty() {
-    city = '';
-    countryCode = '';
+    city = Utils.empty;
+    countryCode = Utils.empty;
     longitude = Utils.zero.toDouble();
     latitude = Utils.zero.toDouble();
   }

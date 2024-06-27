@@ -85,21 +85,21 @@ class WeatherDto {
 
   WeatherModel toDomain() => WeatherModel(
       date: countDate(dt!),
-      // cityWithCountryCode: '$name\n${sys!.country}',
-      sky: weather?[Utils.zero].main ?? '',
-      description: weather?[Utils.zero].description ?? '',
-      temperature: '${Utils.kelvinToCelsius(main?.temp)}°C',
-      feelsLike: '${Utils.kelvinToCelsius(main?.feelsLike)}°C',
-      pressure: '${main?.pressure.toString() ?? ''} mbar',
-      humidity: '${main?.humidity.toString() ?? ''}%',
-      windSpeed: '${wind?.speed.toString() ?? ''} km/h',
+      sky: weather?[Utils.zero].main ?? Utils.empty,
+      description: weather?[Utils.zero].description ?? Utils.empty,
+      temperature: Utils.kelvinToCelsius(main?.temp) + Utils.celsiusSign,
+      feelsLike: Utils.kelvinToCelsius(main?.feelsLike) + Utils.celsiusSign,
+      pressure: (main?.pressure.toString() ?? Utils.empty) + Utils.mbarSign,
+      humidity:
+          (main?.humidity.toString() ?? Utils.empty) + Utils.percentSymbol,
+      windSpeed: (wind?.speed.toString() ?? Utils.empty) + Utils.speedSign,
       sunrise: countTime(sys!.sunrise!),
       sunset: countTime(sys!.sunset!),
       location: Location(
-        city: name ?? '',
-        countryCode: sys?.country ?? '',
-        longitude: coord?.lon ?? 0,
-        latitude: coord?.lat ?? 0,
+        city: name ?? Utils.empty,
+        countryCode: sys?.country ?? Utils.empty,
+        longitude: coord?.lon ?? (Utils.zero as double),
+        latitude: coord?.lat ?? (Utils.zero as double),
       ));
 
   String countTime(int timestamp) {
@@ -107,7 +107,7 @@ class WeatherDto {
         .add(const Duration(hours: Utils.three));
     StringBuffer sb = StringBuffer();
     sb.write(result.hour);
-    sb.write(":");
+    sb.write(Utils.colonSymbol);
     sb.write(addZeroInFrontIfNeeded(result.minute));
     return sb.toString();
   }
@@ -117,7 +117,7 @@ class WeatherDto {
         .add(const Duration(hours: Utils.three));
     StringBuffer sb = StringBuffer();
     sb.write(Utils.weekDayName(result.weekday));
-    sb.write("\n");
+    sb.write(Utils.enterSymbol);
     sb.write(Utils.monthName(result.month));
     sb.write(', ${result.day}');
     return sb.toString();
