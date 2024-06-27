@@ -33,7 +33,6 @@ class _ParametersListState extends State<ParametersList> {
     weather = Future<WeatherModel>.delayed(
         const Duration(seconds: Utils.requestDuration),
         () {
-          debugPrint("InitStateTag. args: $args, city: $city");
           return GetWeatherUseCase().getWeather(city);
         });
   }
