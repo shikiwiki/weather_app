@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import '../design/styles.dart';
-import '../design/dimensions.dart';
-import '../../utils/utils.dart';
 
-class Item extends StatelessWidget {
+import '../../utils/utils.dart';
+import '../design/dimensions.dart';
+import '../design/styles.dart';
+
+class ParameterItem extends StatelessWidget {
   final String parameterType;
   final String value;
   final IconData? icon;
 
-  const Item(
+  const ParameterItem(
       {super.key, required this.parameterType, required this.value, this.icon});
 
   @override
@@ -20,33 +21,31 @@ class Item extends StatelessWidget {
             .withOpacity(Utils.itemBackgroundOpacity),
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius)),
+            borderRadius: BorderRadius.circular(itemBorderRadius)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (icon != null) Padding(
-              padding: const EdgeInsets.only(left: iconPadding),
-              child: Icon(icon),
-            ) else Container(width: iconWidth),
+            if (icon != null)
+              Padding(
+                padding: const EdgeInsets.only(left: iconPadding),
+                child: Icon(icon),
+              )
+            else
+              Container(width: iconWidth),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(parameterPadding),
                 child: Text(
                   parameterType,
-                  maxLines: parameterTypeLines,
+                  maxLines: Utils.one,
                   overflow: TextOverflow.ellipsis,
                   style: parameterStyle,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(valuePadding),
-              child: Text(
-                value,
-                maxLines: valueLines,
-                style: valueStyle,
-              ),
-            )
+                padding: const EdgeInsets.all(valuePadding),
+                child: Text(value, maxLines: Utils.one, style: valueStyle))
           ],
         ),
       ),

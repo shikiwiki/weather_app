@@ -1,15 +1,27 @@
-const double separatorHeight = 8;
+const double errorSize = 16;
+const double citySize = 18;
 const double parameterSize = 20;
-const double titleSize = 24;
-const double valueSize = 20;
-const double cardHeight = 32;
-const double itemHeight = 64;
+const double detailsSize = 24;
+const double titleSize = 28;
+const double dateSize = 30;
+const double errorIconSize = 36;
+const double searchIconSize = 28;
+
+const double separatorHeight = 10;
 const double topBarHeight = 50;
+const double itemHeight = 64;
+const double cardHeight = 128;
+
 const double iconWidth = 16;
-const double borderRadius = 8;
-const int itemCount = 12;
-const int parameterTypeLines = 1;
-const int valueLines = 1;
+
+const double itemBorderRadius = 8;
+
 const double parameterPadding = 8;
 const double iconPadding = 12;
 const double valuePadding = 16;
+const double errorPadding = 20;
+
+const double dateStrokeWidth = 2;
+const double refreshStrokeWidth = 3;
+
+const double cityLetterSpacing = 2;

@@ -1,30 +1,24 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+import 'package:flutter/cupertino.dart';
+import 'package:weather_app/data/repository/weather_repository.dart';
+import 'package:weather_app/domain/use_cases/get_weather_use_case.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
+void main() async {
+  var weather = await GetWeatherUseCase().getWeather('minsk');
+  var rawResult = (await WeatherRepository().getWeather('minsk')).toJson();
+  debugPrint(rawResult.toString());
+  debugPrint(weather.sky);
+  debugPrint(weather.temperature);
+  debugPrint(weather.feelsLike);
+  debugPrint(weather.description);
+  debugPrint(weather.humidity);
+  debugPrint(weather.pressure);
+  debugPrint(weather.windSpeed);
+  debugPrint(weather.sunset);
+  debugPrint(weather.sunrise);
 
-import 'package:weather_app/presentation/main.dart';
-
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+  var sunrise = DateTime.fromMillisecondsSinceEpoch(1718847461 * 1000, isUtc: true).toLocal();
+  var sunset = DateTime.fromMillisecondsSinceEpoch(1718909099 * 1000, isUtc: true).toLocal();
+  debugPrint(sunrise.toString());
+  debugPrint(sunset.toString());
+  debugPrint(DateTime.fromMillisecondsSinceEpoch(1718933872 * 1000, isUtc: true).toLocal().toString());
 }
