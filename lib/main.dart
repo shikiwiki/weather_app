@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../presentation/design/colors.dart';
-import '../presentation/pages/date_details_page.dart';
-import '../utils/utils.dart';
-import 'pages/city_details_page.dart';
-import 'pages/today.dart';
+import 'presentation/design/colors.dart';
+import 'presentation/pages/date_details_page.dart';
+import 'utils/utils.dart';
+import 'presentation/pages/city_details_page.dart';
+import 'presentation/pages/today.dart';
 
 void main() {
   runApp(const MyApp());

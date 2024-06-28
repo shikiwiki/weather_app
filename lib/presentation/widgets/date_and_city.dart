@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../domain/model/location.dart';
@@ -57,7 +58,10 @@ class DateAndCity extends StatelessWidget {
                     height: cardHeight,
                     width: MediaQuery.sizeOf(context).width *
                         Utils.dateCardMultiplier,
-                    child: Center(child: Text(date, style: boldDetailsStyle)),
+                    child: Center(
+                        child: Animate(
+                            effects: const [FadeEffect(), SlideEffect()],
+                            child: Text(date, style: boldDetailsStyle))),
                   ),
                 ],
               ),

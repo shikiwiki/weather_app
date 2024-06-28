@@ -103,8 +103,7 @@ class WeatherDto {
       ));
 
   String countTime(int timestamp) {
-    var result = DateTime.fromMillisecondsSinceEpoch(timestamp * Utils.thousand)
-        .add(const Duration(hours: Utils.three));
+    var result = DateTime.fromMillisecondsSinceEpoch(timestamp * Utils.thousand);
     StringBuffer sb = StringBuffer();
     sb.write(result.hour);
     sb.write(Utils.colonSymbol);
@@ -113,8 +112,7 @@ class WeatherDto {
   }
 
   String countDate(int timestamp) {
-    var result = DateTime.fromMillisecondsSinceEpoch(timestamp * Utils.thousand)
-        .add(const Duration(hours: Utils.three));
+    var result = DateTime.fromMillisecondsSinceEpoch(timestamp * Utils.thousand);
     StringBuffer sb = StringBuffer();
     sb.write(Utils.weekDayName(result.weekday));
     sb.write(Utils.enterSymbol);
