@@ -4,6 +4,7 @@ class Utils {
   static const int zero = 0;
   static const int one = 1;
   static const int three = 3;
+  static const int four = 4;
   static const int ten = 10;
   static const int thousand = 1000;
   static const int requestDuration = 2;

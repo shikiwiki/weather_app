@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../utils/utils.dart';
 import '../design/styles.dart';
@@ -70,11 +71,43 @@ class CustomSearchDelegate extends SearchDelegate {
       itemCount: matchQuery.length,
       itemBuilder: (context, index) {
         var result = matchQuery[index];
-        return ListTile(
-          title: Text(result),
-          onTap: () {
-            query = result;
-          },
+        return Slidable(
+          startActionPane: ActionPane(
+            motion: const ScrollMotion(),
+            extentRatio: Utils.one / Utils.four,
+            children: [
+              SlidableAction(
+                autoClose: true,
+                spacing: 4,
+                onPressed: (context) {},
+                backgroundColor: Colors.blueGrey,
+                foregroundColor: Colors.lightBlue,
+                icon: Icons.ac_unit_sharp,
+                label: 'wow',
+              ),
+            ],
+          ),
+          endActionPane: ActionPane(
+            motion: const ScrollMotion(),
+            extentRatio: Utils.one / Utils.four,
+            children: [
+              SlidableAction(
+                onPressed: (context) {},
+                autoClose: true,
+                spacing: Utils.four as double,
+                backgroundColor: Colors.red,
+                foregroundColor: Colors.yellowAccent,
+                icon: Icons.account_balance,
+                label: 'boom',
+              )
+            ],
+          ),
+          child: ListTile(
+            title: Text(result),
+            onTap: () {
+              query = result;
+            },
+          ),
         );
       },
     );
@@ -113,12 +146,14 @@ class CustomSearchDelegate extends SearchDelegate {
       itemCount: matchQuery.length,
       itemBuilder: (context, index) {
         var result = matchQuery[index];
-        return ListTile(
-          title: Text(result),
-          onTap: () {
-            query = result;
-            close(context, matchQuery[index]);
-          },
+        return Slidable(
+          child: ListTile(
+            title: Text(result),
+            onTap: () {
+              query = result;
+              close(context, matchQuery[index]);
+            },
+          ),
         );
       },
     );
