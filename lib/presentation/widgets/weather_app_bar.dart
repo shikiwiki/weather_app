@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../design/colors.dart';
 import '../design/dimensions.dart';
 import '../design/styles.dart';
-import '../design/colors.dart';
 
 class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
   const WeatherAppBar({super.key});
