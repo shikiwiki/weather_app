@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../domain/use_cases/get_weather_use_case.dart';
 
+import '../../../domain/use_cases/get_weather_use_case.dart';
 import '../design/colors.dart';
 import '../widgets/parameters_list.dart';
 import '../widgets/weather_app_bar.dart';

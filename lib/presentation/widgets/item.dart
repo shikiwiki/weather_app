@@ -20,7 +20,7 @@ class Item extends StatelessWidget {
             .withOpacity(Utils.itemBackgroundOpacity),
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius)),
+            borderRadius: BorderRadius.circular(itemBorderRadius)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
